@@ -74,20 +74,35 @@ foreach ($listArr as $k=>$list)
     {
         continue;
     }
-    $yaml['proxies'][]=[
-        'name'=>(string)$info['ps'],
-        'type'=>'vmess',
-        'server'=>(string)$info['add'],
-        'port'=>(int)$info['port'],
-        'uuid'=>(string)$info['id'],
-        'alterId'=>(int)$info['aid'],
-        'cipher'=>(string)$info['type'],
-        'tls'=>(bool)$info['tls'],
-        'network'=>(string)$info['net'],
-        'ws-path'=>(string)$info['path'],
-        'ws-headers'=>['Host'=>(string)$info['host']],
-    ];
-    $yaml['proxy-groups'][0]['proxies'][$k]=$info['ps'];
+    if($info['net']=='ws')
+    {
+        $yaml['proxies'][]=[
+            'name'=>(string)$info['ps'],
+            'type'=>'vmess',
+            'server'=>(string)$info['add'],
+            'port'=>(int)$info['port'],
+            'uuid'=>(string)$info['id'],
+            'alterId'=>(int)$info['aid'],
+            'cipher'=>(string)$info['type']?:'auto',
+            'tls'=>(bool)$info['tls'],
+            'network'=>(string)$info['net'],
+            'ws-path'=>(string)$info['path'],
+            'ws-headers'=>['Host'=>(string)$info['host']],
+        ];
+    }
+    if($info['net']=='tcp')
+    {
+        $yaml['proxies'][]=[
+            'name'=>(string)$info['ps'],
+            'type'=>'vmess',
+            'server'=>(string)$info['add'],
+            'port'=>(int)$info['port'],
+            'uuid'=>(string)$info['id'],
+            'alterId'=>(int)$info['aid'],
+            'cipher'=>(string)$info['type']?:'auto',
+            ];
+    }
+    $yaml['proxy-groups'][0]['proxies'][]=$info['ps'];
     unset($str,$baseInfo,$info);
 }
 $yaml=Spyc::YAMLDump($yaml,2,0);
