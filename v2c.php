@@ -70,7 +70,7 @@ foreach ($listArr as $k=>$list)
     preg_match('/vmess[\r\n]?\:\/\/(\S+)/',$list,$str);
     $baseInfo=$str[1];
     $info=json_decode(base64_decode($baseInfo),true);
-    if($info['net']!='ws')
+    if(!in_array($info['net'],['ws','tcp']))
     {
         continue;
     }
@@ -93,6 +93,7 @@ foreach ($listArr as $k=>$list)
             'network'=>(string)$info['net'],
             'ws-path'=>(string)$info['path'],
             'ws-headers'=>['Host'=>(string)$info['host']],
+            'skip-cert-verify'=>(bool)$info['verify_cert']?false:true,
         ];
     }
     if($info['net']=='tcp')
