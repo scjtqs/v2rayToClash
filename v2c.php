@@ -1,4 +1,3 @@
-#!/bin/php
 <?php
 /** v2ray to clash yml
  * Created by PhpStorm.
