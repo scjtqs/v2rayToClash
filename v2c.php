@@ -74,6 +74,11 @@ foreach ($listArr as $k=>$list)
     {
         continue;
     }
+    //过滤掉一些回国链接
+    if(strstr($info['ps'],'回国'))
+    {
+        continue;
+    }
     if($info['net']=='ws')
     {
         $yaml['proxies'][]=[
