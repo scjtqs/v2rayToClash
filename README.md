@@ -1,6 +1,8 @@
 # v2rayToClash
 个人使用的v2ray订阅地址转clash的yaml的脚本
 
+适配了 network=ws的方式
+
 使用方法：
 
 ```bash
