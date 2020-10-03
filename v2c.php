@@ -41,6 +41,7 @@ EOL;
 $Spyc = new Spyc();
 $yaml=$Spyc->load($init);
 $url="你的订阅地址";
+$url="https://baipiao-rss.com/link/cKnEwycbRyTYwClf?sub=3&extend=1";
 $rspBase64=base64_decode(file_get_contents($url));
 $listArr=explode(PHP_EOL,$rspBase64);
 if(empty($listArr))
@@ -83,7 +84,7 @@ foreach ($listArr as $k=>$list)
             'port'=>(int)$info['port'],
             'uuid'=>(string)$info['id'],
             'alterId'=>(int)$info['aid'],
-            'cipher'=>(string)$info['type']?:'auto',
+            'cipher'=>'auto',
             'tls'=>(bool)$info['tls'],
             'network'=>(string)$info['net'],
             'ws-path'=>(string)$info['path'],
@@ -99,9 +100,10 @@ foreach ($listArr as $k=>$list)
             'port'=>(int)$info['port'],
             'uuid'=>(string)$info['id'],
             'alterId'=>(int)$info['aid'],
-            'cipher'=>(string)$info['type']?:'auto',
+            'cipher'=>'auto',
             ];
     }
+
     $yaml['proxy-groups'][0]['proxies'][]=$info['ps'];
     unset($str,$baseInfo,$info);
 }
