@@ -40,7 +40,7 @@ rules:
 EOL;
 $Spyc = new Spyc();
 $yaml=$Spyc->load($init);
-$url="你的v2ray订阅地址";
+$url="你的订阅地址";
 $rspBase64=base64_decode(file_get_contents($url));
 $listArr=explode(PHP_EOL,$rspBase64);
 if(empty($listArr))
@@ -70,7 +70,10 @@ foreach ($listArr as $k=>$list)
     preg_match('/vmess[\r\n]?\:\/\/(\S+)/',$list,$str);
     $baseInfo=$str[1];
     $info=json_decode(base64_decode($baseInfo),true);
-//    var_dump($info);exit;
+    if($info['net']!='ws')
+    {
+        continue;
+    }
     $yaml['proxies'][]=[
         'name'=>$info['ps'],
         'type'=>'vmess',
