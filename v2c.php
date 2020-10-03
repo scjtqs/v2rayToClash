@@ -40,7 +40,7 @@ rules:
 EOL;
 $Spyc = new Spyc();
 $yaml=$Spyc->load($init);
-$url="你的v2ray订阅地址“;
+$url="你的v2ray订阅地址";
 $rspBase64=base64_decode(file_get_contents($url));
 $listArr=explode(PHP_EOL,$rspBase64);
 if(empty($listArr))
