@@ -10,6 +10,8 @@ git clone https://github.com/scjtqs/v2rayToClash
 cd v2rayToClash
 ## 通过composer安装依赖
 composer require mustangostang/spyc
+## 或者使用项目中的composer
+php composer.phar require mustangostang/spyc
 ## 通过php脚本进行转换,修改v2c.php中的url订阅地址
 php v2c.php
 ## 通过docker-compose启动 docker服务
