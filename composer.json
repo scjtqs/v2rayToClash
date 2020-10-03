@@ -1,5 +1,11 @@
 {
     "require": {
         "mustangostang/spyc": "^0.6.3"
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://mirrors.aliyun.com/composer/"
+        }
     }
 }
