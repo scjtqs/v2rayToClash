@@ -19,3 +19,5 @@ php v2c.php
 ## 通过docker-compose启动 docker服务
 docker-compose up -d
 ```
+
+然后 打开浏览器 http://127.0.0.1:1234，即可使用yacd管理clash
