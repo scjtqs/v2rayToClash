@@ -56,11 +56,11 @@ $yaml['proxy-groups'][0]=[
     'interval'=>300,
 ];
 //直连分组
-$yaml['proxy-groups'][1]=[
-    'name'=>'直接连接',
-    'type'=>'select',
-    'proxies'=>['DIRECT']
-];
+//$yaml['proxy-groups'][1]=[
+//    'name'=>'直接连接',
+//    'type'=>'select',
+//    'proxies'=>['DIRECT']
+//];
 foreach ($listArr as $k=>$list)
 {
     if(empty(trim($list)))
