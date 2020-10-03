@@ -1,0 +1,21 @@
+version: "3"
+services:
+    clash:
+        image: dreamacro/clash:latest
+#0.20.0-arm32v7
+        container_name: clash-vforp
+        restart: always
+        ports:
+            - 10810:7890
+            - 10808:7891
+            - 10809:7892
+            - 9091:9090
+        volumes:
+            - ./clash.yaml:/root/.config/clash/config.yaml:rw
+
+    yacd:
+        image: haishanh/yacd
+        container_name: yacd
+        restart: always
+        ports:
+            - 1234:80
