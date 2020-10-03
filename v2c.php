@@ -75,17 +75,17 @@ foreach ($listArr as $k=>$list)
         continue;
     }
     $yaml['proxies'][]=[
-        'name'=>$info['ps'],
+        'name'=>(string)$info['ps'],
         'type'=>'vmess',
-        'server'=>$info['add'],
-        'port'=>$info['port'],
-        'uuid'=>$info['id'],
-        'alterId'=>$info['aid'],
-        'cipher'=>$info['type'],
-        'tls'=>$info['tls']?true:false,
-        'network'=>$info['net'],
-        'ws-path'=>$info['path'],
-        'ws-headers'=>['Host'=>$info['host']],
+        'server'=>(string)$info['add'],
+        'port'=>(int)$info['port'],
+        'uuid'=>(string)$info['id'],
+        'alterId'=>(int)$info['aid'],
+        'cipher'=>(string)$info['type'],
+        'tls'=>(bool)$info['tls'],
+        'network'=>(string)$info['net'],
+        'ws-path'=>(string)$info['path'],
+        'ws-headers'=>['Host'=>(string)$info['host']],
     ];
     $yaml['proxy-groups'][0]['proxies'][$k]=$info['ps'];
     unset($str,$baseInfo,$info);
