@@ -22,3 +22,9 @@ docker-compose up -d
 
 然后 打开浏览器 http://127.0.0.1:1234 
 即可使用yacd管理clash
+
+# 提供了在线转换脚本（v2ray订阅转clash订阅），以及多个v2ray订阅合并成一个clash订阅的工具
+
+> https://wx.scjtqs.com/utils/user/v2toclash
+
+> https://wx.scjtqs.com/utils/user/v2toclashs
